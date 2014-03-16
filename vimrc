@@ -1,5 +1,8 @@
 " Set shell to avoid command failures due to fish
 set shell=/bin/bash
+
+" [note] - This .vimrc minifies some settings from thoughtbot's dotfiles repo
+
 set tabstop=2
 set shiftwidth=2
 set expandtab
