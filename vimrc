@@ -3,6 +3,7 @@ set shell=/bin/bash
 
 " [note] - This .vimrc minifies some settings from thoughtbot's dotfiles repo
 
+set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -37,9 +38,18 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
+" Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+filetype plugin indent on
+
+" [todo] - why doesn't this work? :(
+"if filereadable(expand("~/.vimrc.bundles"))
+"  source ~/.vimrc.bundles
+"endif
 
 filetype plugin indent on
 
