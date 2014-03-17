@@ -24,6 +24,11 @@ set list listchars=tab:»·,trail:·
 " Tab completion
 set wildmode=list:longest,list:full
 set complete=.,w,t
+
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
+endif
+
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -34,15 +39,13 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
-
 " Enable arrow keys
 nnoremap <Left> h
 nnoremap <Right> l
 nnoremap <Up> k
 nnoremap <Down> j
+
+nnoremap <Leader>n :NERDTreeToggle<cr>
 
 " Vundle
 filetype off
