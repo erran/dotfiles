@@ -46,6 +46,7 @@ nnoremap <Up> k
 nnoremap <Down> j
 
 nnoremap <Leader>n :NERDTreeToggle<cr>
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 
 " Vundle
 filetype off
