@@ -56,6 +56,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'reedes/vim-colors-pencil'
 Bundle 'itchyny/lightline.vim'
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on
 
