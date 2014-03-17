@@ -38,6 +38,12 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
+" Enable arrow keys
+nnoremap <Left> h
+nnoremap <Right> l
+nnoremap <Up> k
+nnoremap <Down> j
+
 " Vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -49,23 +55,19 @@ Bundle 'croaky/vim-colors-github'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'reedes/vim-colors-pencil'
-
-" [todo] - why doesn't this work? :(
-"if filereadable(expand("~/.vimrc.bundles"))
-"  source ~/.vimrc.bundles
-"endif
+Bundle 'itchyny/lightline.vim'
 
 filetype plugin indent on
 
-" Enable arrow keys
-nnoremap <Left> h
-nnoremap <Right> l
-nnoremap <Up> k
-nnoremap <Down> j
-
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
-
-colo pencil
+" Style/theme
+colorscheme pencil
 set background=dark
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
