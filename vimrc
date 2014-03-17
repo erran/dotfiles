@@ -4,6 +4,7 @@ set shell=/bin/bash
 " [note] - This .vimrc minifies some settings from thoughtbot's dotfiles repo
 
 set number
+set numberwidth=1
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -17,6 +18,7 @@ set showcmd
 set incsearch
 set laststatus=2
 set autowrite
+set backspace=indent,eol,start
 set splitbelow
 set splitright
 set list listchars=tab:»·,trail:·
@@ -45,6 +47,11 @@ nnoremap <Right> l
 nnoremap <Up> k
 nnoremap <Down> j
 
+nnoremap <C-w>t :tabnew<cr>
+nnoremap <C-w><Up> :tabprevious<cr>
+nnoremap <C-w><Down> :tabnext<cr>
+nnoremap <C-w>, :tabprevious<cr>
+nnoremap <C-w>. :tabnext<cr>
 nnoremap <Leader>n :NERDTreeToggle<cr>
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 
