@@ -44,7 +44,11 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-filetype plugin indent on
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'croaky/vim-colors-github'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'reedes/vim-colors-pencil'
 
 " [todo] - why doesn't this work? :(
 "if filereadable(expand("~/.vimrc.bundles"))
@@ -62,3 +66,6 @@ nnoremap <Down> j
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+colo pencil
+set background=dark
