@@ -48,8 +48,6 @@ nnoremap <Up> k
 nnoremap <Down> j
 
 nnoremap <C-w>t :tabnew<cr>
-nnoremap <C-w><Up> :tabprevious<cr>
-nnoremap <C-w><Down> :tabnext<cr>
 nnoremap <C-w>, :tabprevious<cr>
 nnoremap <C-w>. :tabnext<cr>
 nnoremap <Leader>n :NERDTreeToggle<cr>
@@ -64,10 +62,12 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'croaky/vim-colors-github'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 Bundle 'reedes/vim-colors-pencil'
 Bundle 'itchyny/lightline.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'mhinz/vim-startify'
 
 filetype plugin indent on
 
