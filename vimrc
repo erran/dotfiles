@@ -71,6 +71,9 @@ Bundle 'mhinz/vim-startify'
 
 filetype plugin indent on
 
+autocmd FileType cucumber setlocal spell
+autocmd FileType markdown setlocal spell
+
 " Style/theme
 colorscheme pencil
 set background=dark
