@@ -51,6 +51,7 @@ nnoremap <C-w>t :tabnew<cr>
 nnoremap <C-w>, :tabprevious<cr>
 nnoremap <C-w>. :tabnext<cr>
 nnoremap <Leader>n :NERDTreeToggle<cr>
+map <Leader>/ <Leader>cc<cr>
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 
 " Vundle
