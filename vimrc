@@ -1,8 +1,7 @@
-" Set shell to avoid command failures due to fish
-set shell=/bin/bash
-
 " [note] - This .vimrc minifies some settings from thoughtbot's dotfiles repo
 
+" Set shell to avoid command failures due to fish
+set shell=/bin/bash
 set number
 set numberwidth=1
 set tabstop=2
@@ -63,7 +62,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'croaky/vim-colors-github'
 Bundle 'kien/ctrlp.vim'
-" Bundle 'scrooloose/syntastic'
 Bundle 'reedes/vim-colors-pencil'
 Bundle 'itchyny/lightline.vim'
 Bundle 'scrooloose/nerdtree'
