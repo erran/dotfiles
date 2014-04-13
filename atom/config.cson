@@ -1,0 +1,45 @@
+'editor':
+  'fontSize': 13
+  'showIndentGuide': true
+  'fontFamily': 'Menlo'
+'core':
+  'themes': [
+    'atom-dark-ui'
+    'atom-dark-syntax'
+  ]
+  'ignoredNames': [
+    '.git'
+    '.svn'
+    '.DS_Store'
+    '.hg'
+  ]
+  'projectHome': '/Users/ecarey/repositories'
+  'audioBeep': false
+  'disabledPackages': [
+    'travis-ci-status'
+  ]
+'exception-reporting':
+  'userId': '42e5dfa4-c781-2acb-f743-bb312bfef836'
+'release-notes':
+  'viewedVersion': '0.85.0'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': '764648fb67f080931e23b7adbf16bbdfa398b0d6'
+'autocomplete-plus':
+  'enableAutoActivation': false
+'autocomplete':
+  'includeCompletionsFromAllBuffers': true
+'spell-check':
+  'grammars': [
+    'source.gfm'
+    'text.git-commit'
+    'text.plain'
+    'text.plain.null-grammar'
+  ]
+'rspec':
+  'command': 'rspec'
+'achievements':
+  'NoticeDelay': 2500
+'script':
+  'path_prefix': '/Users/ecarey/.rbenv/shims/:/usr/local/share/npm/bin:/usr/local/bin'
