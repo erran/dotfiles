@@ -1,7 +1,7 @@
 'editor':
-  'fontSize': 13
   'fontFamily': 'Menlo'
   'showIndentGuide': true
+  'fontSize': 13
 'core':
   'PATH': '/Users/ecarey/.rbenv/shims:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin'
   'themes': [
