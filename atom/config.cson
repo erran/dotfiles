@@ -28,7 +28,7 @@
 'metrics':
   'userId': '764648fb67f080931e23b7adbf16bbdfa398b0d6'
 'autocomplete-plus':
-  'enableAutoActivation': false
+  'includeCompletionsFromAllBuffers': true
 'autocomplete':
   'includeCompletionsFromAllBuffers': true
 'spell-check':
