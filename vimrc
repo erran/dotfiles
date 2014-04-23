@@ -74,8 +74,9 @@ autocmd FileType cucumber setlocal spell
 autocmd FileType markdown setlocal spell
 
 " Style/theme
-colorscheme pencil
-set background=dark
+" colorscheme pencil
+colorscheme default
+set background=light
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
