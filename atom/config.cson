@@ -6,7 +6,7 @@
   'PATH': '/Users/ecarey/.rbenv/shims:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin'
   'themes': [
     'atom-dark-ui'
-    'monokai'
+    'atom-dark-syntax'
   ]
   'ignoredNames': [
     '.git'
@@ -17,18 +17,20 @@
   'projectHome': '/Users/ecarey/repositories'
   'audioBeep': false
   'disabledPackages': [
-    'travis-ci-status'
+    'autocomplete-plus'
   ]
 'exception-reporting':
   'userId': '42e5dfa4-c781-2acb-f743-bb312bfef836'
 'release-notes':
-  'viewedVersion': '0.89.0'
+  'viewedVersion': '0.90.0'
 'welcome':
   'showOnStartup': false
 'metrics':
   'userId': '764648fb67f080931e23b7adbf16bbdfa398b0d6'
 'autocomplete-plus':
   'includeCompletionsFromAllBuffers': true
+  'fileBlacklist': '.*, *.md, *.json'
+  'enableAutoActivation': false
 'autocomplete':
   'includeCompletionsFromAllBuffers': true
 'spell-check':
@@ -38,7 +40,5 @@
     'text.plain'
     'text.plain.null-grammar'
   ]
-'rspec':
-  'command': 'rspec'
 'achievements':
   'NoticeDelay': 2500
