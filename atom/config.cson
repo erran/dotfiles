@@ -6,7 +6,7 @@
   'PATH': '/Users/ecarey/.rbenv/shims:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin'
   'themes': [
     'atom-dark-ui'
-    'atom-dark-syntax'
+    'monokai'
   ]
   'ignoredNames': [
     '.git'
@@ -22,7 +22,7 @@
 'exception-reporting':
   'userId': '42e5dfa4-c781-2acb-f743-bb312bfef836'
 'release-notes':
-  'viewedVersion': '0.90.0'
+  'viewedVersion': '0.92.0'
 'welcome':
   'showOnStartup': false
 'metrics':
