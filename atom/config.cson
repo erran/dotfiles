@@ -13,6 +13,8 @@
     '.svn'
     '.DS_Store'
     '.hg'
+    'target'
+    'tmp'
   ]
   'projectHome': '/Users/ecarey/repositories'
   'audioBeep': false
