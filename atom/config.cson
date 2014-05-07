@@ -3,10 +3,19 @@
   'showIndentGuide': true
   'fontSize': 13
 'core':
+  'CONTROLS_API_ENDPOINT': 'https://test-system.dev:3780/insight/controls/api/'
+  'CONTROLS_WEB_ENDPOINT': 'https://test-system.dev:3780/insight/controls/'
+  'CONTROLS_HOSTNAME': 'test-system.dev'
+  'CONTROLS_USERNAME': ''
+  'CONTROLS_PASSWORD': ''
   'PATH': '/Users/ecarey/.rbenv/shims:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin'
   'themes': [
     'atom-dark-ui'
     'monokai'
+  ]
+  'audioBeep': false
+  'disabledPackages': [
+    'autocomplete-plus'
   ]
   'ignoredNames': [
     '.git'
@@ -17,14 +26,10 @@
     'tmp'
   ]
   'projectHome': '/Users/ecarey/repositories'
-  'audioBeep': false
-  'disabledPackages': [
-    'autocomplete-plus'
-  ]
 'exception-reporting':
   'userId': '42e5dfa4-c781-2acb-f743-bb312bfef836'
 'release-notes':
-  'viewedVersion': '0.92.0'
+  'viewedVersion': '0.94.0'
 'welcome':
   'showOnStartup': false
 'metrics':
@@ -44,3 +49,7 @@
   ]
 'achievements':
   'NoticeDelay': 2500
+'tree-view':
+  'hideIgnoredNames': true
+'project-manager':
+  'showPath': true

@@ -20,3 +20,10 @@
 path = atom.config.get('core.PATH')
 if path
   process.env.PATH = path
+
+# Automation related vars this was broken by the Atom update to 0.94.0
+process.env.CONTROLS_API_ENDPOINT = atom.config.get('core.CONTROLS_API_ENDPOINT')
+process.env.CONTROLS_WEB_ENDPOINT= atom.config.get('core.CONTROLS_WEB_ENDPOINT')
+process.env.CONTROLS_HOSTNAME = atom.config.get('core.CONTROLS_HOSTNAME')
+process.env.CONTROLS_USERNAME = atom.config.get('core.CONTROLS_USERNAME')
+process.env.CONTROLS_PASSWORD = atom.config.get('core.CONTROLS_PASSWORD')
