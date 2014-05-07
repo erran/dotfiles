@@ -3,8 +3,8 @@
   'showIndentGuide': true
   'fontSize': 13
 'core':
-  'CONTROLS_API_ENDPOINT': 'https://test-system.dev:3780/insight/controls/api/'
-  'CONTROLS_WEB_ENDPOINT': 'https://test-system.dev:3780/insight/controls/'
+  'CONTROLS_API_ENDPOINT': 'https://test-system.dev:3780/insight/controls/api'
+  'CONTROLS_WEB_ENDPOINT': 'https://test-system.dev:3780/insight/controls'
   'CONTROLS_HOSTNAME': 'test-system.dev'
   'CONTROLS_USERNAME': ''
   'CONTROLS_PASSWORD': ''
