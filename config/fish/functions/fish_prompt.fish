@@ -1,12 +1,19 @@
 function fish_prompt --description 'Write out the prompt'
   set -l last_status $status
 
-  if not set -q __fish_prompt_normal
-    set -g __fish_prompt_normal (set_color normal)
+  set_color $fish_color_host
+  printf '%s ' (hostname -s)
+
+  set_color normal
+  printf '@ '
+
+  switch $USER
+  case 'root'
+    set_color $fish_color_cwd_root
+  case '*'
+    set_color $fish_color_cwd
   end
 
-  # PWD
-  set_color $fish_color_cwd
   echo -n (prompt_pwd)
   set_color normal
 

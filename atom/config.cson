@@ -1,6 +1,5 @@
 'global':
   'script':
-    'escapeConsoleOutput': true
     'enableExecTime': false
   'exception-reporting':
     'userId': '5090042f-7fbf-6f18-38a5-ff452bf335be'
@@ -17,6 +16,8 @@
     'showIndentGuide': true
     'zoomFontWhenCtrlScrolling': true
     'useShadowDOM': true
+    'tabLength': 3
+    'fontSize': 14
   'core':
     'PATH': '/Users/ecarey/.rbenv/shims:/Users/ecarey/.rbenv/bin:/Users/ecarey/.rbenv/shims:set:PATH:/Users/ecarey/bin:/Users/ecarey/.rbenv/bin:/Users/ecarey/bin/packer:/usr/local/bin:/usr/X11/bin:/usr/local/heroku/bin:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin'
     'projectHome': '/Users/ecarey/repositories'
@@ -37,6 +38,10 @@
     'destroyEmptyPanes': false
     'disabledPackages': [
       'relative-numbers'
+    ]
+    'themes': [
+      'atom-dark-ui'
+      'no-caffeine-syntax'
     ]
   'fuzzy-finder':
     'ignoredNames': [
