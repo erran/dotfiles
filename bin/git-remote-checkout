@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+GIT_ROOT = `git rev-parse --show-toplevel`.chomp
+GITHUB_REPOSITORY = GIT_ROOT.split('/').last
+
+def print_then_execute(command, newline: true)
+  puts command
+
+  if newline
+    puts `#{command}`
+  else
+    print `#{command}`.chomp
+  end
+end
+
+remote_branch = ARGV.first
+remote, branch = remote_branch.split(':')
+
+unless remote && branch
+  warn 'You must specify the remote and branch name in the format `$REMOTE:$BRANCH`'
+  exit 1
+end
+
+available_remotes = `git remote`.chomp.split
+if available_remotes.include?(remote)
+  warn "The remote #{remote} already exists.",
+    "Skipping `git remote add #{remote} git@github.com:#{remote}/#{GITHUB_REPOSITORY}.git`",
+    nil # Print an extra newline line
+else
+  print_then_execute "git remote add #{remote} git@github.com:#{remote}/#{GITHUB_REPOSITORY}.git"
+end
+
+print_then_execute "git fetch #{remote} #{branch}"
+print_then_execute "git checkout -b #{branch} --track #{remote}/#{branch}", newline: false
+
+# Require english to define $CHILD_STATUS instead of using $?
+require 'english'
+exit $CHILD_STATUS.exitstatus

@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+# NOTE: Most of the emoji in this module are defined in Atom's
+# contributing guidelines
+module Emoji
+  EMOJIS = %w[💄 🐎 🚱 📝 🐧 🍎 🏁 🐛 🔥 💚 ✅ 🔒 🐱 ⛄️]
+  NAMES = %w[lipstick racehorse non-potable_water memo penguin apple checkered_flag bug fire green_heart white_check_mark lock cat snowman]
+
+  module_function
+
+  def mapping
+    NAMES.zip(EMOJIS).to_h
+  end
+
+  def unicode_for(name)
+    emoji = mapping[name]
+    emoji << " " if emoji
+    emoji
+  end
+end
+
+args = ARGV.join(' ')
+result = `env CLICOLOR=1 CLICOLOR_FORCE=1 git log --color #{args}`
+result.gsub!(/:([a-z0-9\+\-_]+):/) do |match|
+  if Emoji::NAMES.include?($1)
+    Emoji.unicode_for($1) or match
+  else
+    match
+  end
+end
+
+#puts result
+system "less -rFX <<'EOF'\n#{result}\nEOF"

@@ -1,5 +1,6 @@
 'global':
   'script':
+    'escapeConsoleOutput': true
     'enableExecTime': false
   'exception-reporting':
     'userId': '5090042f-7fbf-6f18-38a5-ff452bf335be'
