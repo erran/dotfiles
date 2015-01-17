@@ -67,6 +67,8 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'mhinz/vim-startify'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'hwartig/vim-seeing-is-believing'
 
 filetype plugin indent on
 
@@ -86,3 +88,11 @@ let g:lightline = {
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
+
+autocmd FileType ruby nmap <buffer> <Leader>r <Plug>(seeing-is-believing-run)
+autocmd FileType ruby xmap <buffer> <Leader>r <Plug>(seeing-is-believing-run)
+autocmd FileType ruby imap <buffer> <Leader>r <Plug>(seeing-is-believing-run)
+
+autocmd FileType ruby nmap <buffer> <Leader>s <Plug>(seeing-is-believing-mark)
+autocmd FileType ruby xmap <buffer> <Leader>s <Plug>(seeing-is-believing-mark)
+autocmd FileType ruby imap <buffer> <Leader>s <Plug>(seeing-is-believing-mark)
