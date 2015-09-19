@@ -6,6 +6,9 @@ set number
 set numberwidth=1
 set tabstop=2
 set shiftwidth=2
+" The Rapid7 coding standards are 3 spaces for Java files.
+autocmd FileType java set tabstop=3
+autocmd FileType java set shiftwidth=3
 set expandtab
 set nocompatible
 set nobackup
@@ -76,9 +79,10 @@ filetype plugin indent on
 autocmd FileType markdown setlocal spell
 
 " Style/theme
-" colorscheme pencil
-colorscheme default
-set background=light
+"colorscheme default
+colorscheme pencil
+set background=dark "light
+set t_ut=
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -91,8 +95,24 @@ let g:lightline = {
 
 autocmd FileType ruby nmap <buffer> <Leader>r <Plug>(seeing-is-believing-run)
 autocmd FileType ruby xmap <buffer> <Leader>r <Plug>(seeing-is-believing-run)
-autocmd FileType ruby imap <buffer> <Leader>r <Plug>(seeing-is-believing-run)
 
 autocmd FileType ruby nmap <buffer> <Leader>s <Plug>(seeing-is-believing-mark)
 autocmd FileType ruby xmap <buffer> <Leader>s <Plug>(seeing-is-believing-mark)
-autocmd FileType ruby imap <buffer> <Leader>s <Plug>(seeing-is-believing-mark)
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+"vnoremap <C-r> :grep! @.<CR>
+
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
