@@ -9,7 +9,7 @@ end
 set --export EDITOR vim
 
 # $PATH
-set --export PATH set PATH $HOME/bin $HOME/.bin $HOME/.rbenv/bin ~/Applications/SoapUI-5.0.0.app/Contents/java/app/bin /usr/local/bin /usr/X11/bin /usr/local/heroku/bin /usr/local/share/npm/bin /Applications/Postgres.app/Contents/Versions/9.4/bin ~/Library/Haskell/bin $PATH
+set --export PATH $HOME/bin $HOME/.bin $HOME/.rbenv/bin ~/Applications/SoapUI-5.0.0.app/Contents/java/app/bin /usr/local/bin /usr/X11/bin /usr/local/heroku/bin /usr/local/share/npm/bin /Applications/Postgres.app/Contents/Versions/9.4/bin ~/Library/Haskell/bin $PATH
 
 # Ruby version management
 . (rbenv init - | psub)

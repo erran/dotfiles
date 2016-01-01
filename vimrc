@@ -72,6 +72,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'mhinz/vim-startify'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'hwartig/vim-seeing-is-believing'
+Bundle 'flazz/vim-colorschemes'
 
 filetype plugin indent on
 
@@ -80,8 +81,10 @@ autocmd FileType markdown setlocal spell
 
 " Style/theme
 "colorscheme default
-colorscheme pencil
+"colorscheme pencil
+"colorscheme busybee
 set background=dark "light
+colorscheme badwolf
 set t_ut=
 
 let g:lightline = {
