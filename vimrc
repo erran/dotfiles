@@ -58,22 +58,23 @@ cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W')
 
 " Vundle
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'croaky/vim-colors-github'
-Bundle 'kien/ctrlp.vim'
-Bundle 'reedes/vim-colors-pencil'
-Bundle 'itchyny/lightline.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'mhinz/vim-startify'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'hwartig/vim-seeing-is-believing'
-Bundle 'flazz/vim-colorschemes'
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'croaky/vim-colors-github'
+Plugin 'kien/ctrlp.vim'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mhinz/vim-startify'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'hwartig/vim-seeing-is-believing'
+Plugin 'flazz/vim-colorschemes'
 
+call vundle#end()
 filetype plugin indent on
 
 " autocmd FileType cucumber setlocal spell
