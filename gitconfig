@@ -1,0 +1,28 @@
+[core]
+  editor = vim
+  pager = less -F -X -r
+  excludesfile = /Users/ecarey/.gitignore
+  autocrlf = input
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+[color "branch"]
+  remote = blue
+[color "status"]
+  added = green
+  changed = blue bold
+  untracked = magenta
+  removed = red bold
+[user]
+  name = Erran Carey
+  email = me@errancarey.com
+[push]
+  default = simple
+[i18n]
+  logoutputencoding = utf8
+[alias]
+  outgoing = !git fetch && git log FETCH_HEAD..
