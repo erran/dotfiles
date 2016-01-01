@@ -80,11 +80,8 @@ filetype plugin indent on
 autocmd FileType markdown setlocal spell
 
 " Style/theme
-"colorscheme default
-"colorscheme pencil
-"colorscheme busybee
+colorscheme darkblue
 set background=dark "light
-colorscheme badwolf
 set t_ut=
 
 let g:lightline = {
