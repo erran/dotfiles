@@ -25,4 +25,5 @@
 [i18n]
   logoutputencoding = utf8
 [alias]
+  incoming = !git fetch && git log ..FETCH_HEAD
   outgoing = !git fetch && git log FETCH_HEAD..

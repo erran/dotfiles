@@ -6,10 +6,15 @@ set number
 set numberwidth=1
 set tabstop=2
 set shiftwidth=2
+set expandtab
 " The Rapid7 coding standards are 3 spaces for Java files.
 autocmd FileType java set tabstop=3
 autocmd FileType java set shiftwidth=3
-set expandtab
+" The AppSpider coding standards are hardtabs for PHP files.
+autocmd FileType php set tabstop=1
+autocmd FileType php set shiftwidth=1
+autocmd FileType php set autoindent
+autocmd FileType php set noexpandtab
 set nocompatible
 set nobackup
 set nowritebackup
@@ -23,7 +28,7 @@ set autowrite
 set backspace=indent,eol,start
 set splitbelow
 set splitright
-set list listchars=tab:»·,trail:·
+"set list listchars=tab:»·,trail:·
 
 " Tab completion
 set wildmode=list:longest,list:full
@@ -79,20 +84,25 @@ filetype plugin indent on
 
 " autocmd FileType cucumber setlocal spell
 autocmd FileType markdown setlocal spell
+au BufNewFile,BufRead *.gradle setf groovy
+au BufNewFile,BufRead Cloudfile setf ruby
 
 " Style/theme
 colorscheme darkblue
 set background=dark "light
 set t_ut=
+colorscheme monokai
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}',
+      \   'readonly': '%{&readonly?"":""}',
       \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
+
+autocmd BufNewFile,BufRead Dogfile set filetype=ruby
 
 autocmd FileType ruby nmap <buffer> <Leader>r <Plug>(seeing-is-believing-run)
 autocmd FileType ruby xmap <buffer> <Leader>r <Plug>(seeing-is-believing-run)

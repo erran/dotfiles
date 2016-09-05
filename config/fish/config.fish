@@ -1,15 +1,13 @@
 # Fish shell customization
 
-if not test $TMUX
-  set -l __fortune (fortune -s)
-  set --export fish_greeting $__fortune
-end
+set -l __fortune (fortune -s)
+set --export fish_greeting $__fortune
 
 # env
 set --export EDITOR vim
 
 # $PATH
-set --export PATH $HOME/bin $HOME/.bin $HOME/.rbenv/bin ~/Applications/SoapUI-5.0.0.app/Contents/java/app/bin /usr/local/bin /usr/X11/bin /usr/local/heroku/bin /usr/local/share/npm/bin /Applications/Postgres.app/Contents/Versions/9.4/bin ~/Library/Haskell/bin $PATH
+set --export PATH $HOME/bin $HOME/.bin $HOME/.rbenv/bin ~/Library/gradle-2.12/bin ~/Applications/SoapUI-5.0.0.app/Contents/java/app/bin /usr/local/bin /usr/X11/bin /usr/local/heroku/bin /usr/local/share/npm/bin /Applications/Postgres.app/Contents/Versions/9.4/bin ~/Library/Haskell/bin /Applications/VirtualBox.app/Contents/MacOS $PATH
 
 # Ruby version management
 . (rbenv init - | psub)
