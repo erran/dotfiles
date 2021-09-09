@@ -1,76 +1,54 @@
+# Defined interactively
 function fish_prompt --description 'Write out the prompt'
-	set -l last_status $status
+    set -l laststatus $status
 
-	# Just calculate these once, to save a few cycles when displaying the prompt
-	if not set -q __fish_prompt_hostname
-		set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
-	end
+    set -l git_info
+    if set -l git_branch (command git symbolic-ref HEAD 2>/dev/null | string replace refs/heads/ '')
+        set git_branch (set_color -o blue)"$git_branch"
+        set -l git_status
+        if not command git diff-index --quiet HEAD --
+            if set -l count (command git rev-list --count --left-right $upstream...HEAD 2>/dev/null)
+                echo $count | read -l ahead behind
+                if test "$ahead" -gt 0
+                    set git_status "$git_status"(set_color red)⬆
+                end
+                if test "$behind" -gt 0
+                    set git_status "$git_status"(set_color red)⬇
+                end
+            end
+            for i in (git status --porcelain | string sub -l 2 | sort | uniq)
+                switch $i
+                    case "."
+                        set git_status "$git_status"(set_color green)✚
+                    case " D"
+                        set git_status "$git_status"(set_color red)✖
+                    case "*M*"
+                        set git_status "$git_status"(set_color green)✱
+                    case "*R*"
+                        set git_status "$git_status"(set_color purple)➜
+                    case "*U*"
+                        set git_status "$git_status"(set_color brown)═
+                    case "??"
+                        set git_status "$git_status"(set_color red)≠
+                end
+            end
+        else
+            set git_status (set_color green):
+        end
+        set git_info "(git$git_status$git_branch"(set_color white)")"
+    end
 
-	if not set -q __fish_prompt_normal
-		set -g __fish_prompt_normal (set_color normal)
-	end
-	
-	if not set -q -g __fish_classic_git_functions_defined
-		set -g __fish_classic_git_functions_defined
+    set kubeconfig_context (kubectl config current-context | cut -d/ -f2)
 
-		function __fish_repaint_user --on-variable fish_color_user --description "Event handler, repaint when fish_color_user changes"
-			if status --is-interactive
-				set -e __fish_prompt_user
-				commandline -f repaint ^/dev/null
-			end
-		end
-		
-		function __fish_repaint_host --on-variable fish_color_host --description "Event handler, repaint when fish_color_host changes"
-			if status --is-interactive
-				set -e __fish_prompt_host
-				commandline -f repaint ^/dev/null
-			end
-		end
-		
-		function __fish_repaint_status --on-variable fish_color_status --description "Event handler; repaint when fish_color_status changes"
-			if status --is-interactive
-				set -e __fish_prompt_status
-				commandline -f repaint ^/dev/null
-			end
-		end
-	end
+    # Disable PWD shortening by default.
+    set -q fish_prompt_pwd_dir_length
+    or set -lx fish_prompt_pwd_dir_length 0
 
-	set -l delim '>'
-
-	switch $USER
-
-	case root
-
-		if not set -q __fish_prompt_cwd
-			if set -q fish_color_cwd_root
-				set -g __fish_prompt_cwd (set_color $fish_color_cwd_root)
-			else
-				set -g __fish_prompt_cwd (set_color $fish_color_cwd)
-			end
-		end
-
-	case '*'
-
-		if not set -q __fish_prompt_cwd
-			set -g __fish_prompt_cwd (set_color $fish_color_cwd)
-		end
-
-	end
-
-	set -l prompt_status
-	if test $last_status -ne 0
-		if not set -q __fish_prompt_status
-			set -g __fish_prompt_status (set_color $fish_color_status)
-		end
-		set prompt_status "$__fish_prompt_status [$last_status]$__fish_prompt_normal"
-	end
-
-	if not set -q __fish_prompt_user
-		set -g __fish_prompt_user (set_color $fish_color_user)
-	end
-	if not set -q __fish_prompt_host
-		set -g __fish_prompt_host (set_color $fish_color_host)
-	end
-
-	echo -n -s "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status" "$delim" ' '
+    set_color -b black
+    printf '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s' (set_color -o white) '❰' (set_color green) $USER (set_color white) '❙' (set_color yellow) (prompt_pwd) (set_color white) $git_info (set_color white) '|' (set_color cyan) $AWS_PROFILE  (set_color white) '|' (set_color magenta) $kubeconfig_context (set_color white) '❱' (set_color white)
+    if test $laststatus -eq 0
+        printf "%s✔%s≻%s " (set_color -o green) (set_color white) (set_color normal)
+    else
+        printf "%s✘%s≻%s " (set_color -o red) (set_color white) (set_color normal)
+    end
 end

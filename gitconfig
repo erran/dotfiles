@@ -1,7 +1,7 @@
 [core]
   editor = vim
   pager = less -F -X -r
-  excludesfile = /Users/ecarey/.gitignore
+  excludesfile = ~/.gitignore
   autocrlf = input
 [color]
   diff = auto
@@ -27,5 +27,9 @@
 [alias]
   incoming = !git fetch && git log ..FETCH_HEAD
   outgoing = !git fetch && git log FETCH_HEAD..
+  please = !git push --force-with-lease
+  graph = log --graph --all --format='%h %s%n        (%an, %ar)%d' --abbrev-commit
 [pull]
 	ff = only
+[init]
+	defaultBranch = main

@@ -3,6 +3,7 @@
 " Set shell to avoid command failures due to fish
 set shell=/bin/bash
 set number
+set relativenumber
 set numberwidth=1
 set tabstop=2
 set shiftwidth=2
@@ -66,6 +67,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'croaky/vim-colors-github'
@@ -78,13 +80,20 @@ Plugin 'mhinz/vim-startify'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'hwartig/vim-seeing-is-believing'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'blankname/vim-fish'
+Plugin 'hashivim/vim-terraform'
+Plugin 'dhruvasagar/vim-zoom'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
 
+set statusline+=%{zoom#statusline()}
+
 " autocmd FileType cucumber setlocal spell
 autocmd FileType markdown setlocal spell
 au BufNewFile,BufRead *.gradle setf groovy
+au BufNewFile,BufRead *.ejs setf html
 au BufNewFile,BufRead Cloudfile setf ruby
 
 " Style/theme
@@ -127,3 +136,16 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 "vnoremap <C-r> :grep! @.<CR>
 
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
+function HelmSyntax()
+  set filetype=yaml
+  unlet b:current_syntax
+  syn include @yamlGoTextTmpl syntax/gotexttmpl.vim
+  let b:current_syntax = "yaml"
+  syn region goTextTmpl start=/{{/ end=/}}/ contains=@gotplLiteral,gotplControl,gotplFunctions,gotplVariable,goTplIdentifier containedin=ALLBUT,goTextTmpl keepend
+  hi def link goTextTmpl PreProc
+endfunction
+augroup helm_syntax
+  autocmd!
+  autocmd BufRead,BufNewFile */templates/*.yml,*/templates/*.yaml,*/templates/*.tpl call HelmSyntax()
+augroup END
