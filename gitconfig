@@ -27,3 +27,5 @@
 [alias]
   incoming = !git fetch && git log ..FETCH_HEAD
   outgoing = !git fetch && git log FETCH_HEAD..
+[pull]
+	ff = only
